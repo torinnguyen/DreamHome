@@ -1,0 +1,366 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42116139149780F8007E4F92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42116138149780F8007E4F92 /* UIKit.framework */; };
+		4211613B149780F8007E4F92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4211613A149780F8007E4F92 /* Foundation.framework */; };
+		4211613D149780F8007E4F92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4211613C149780F8007E4F92 /* CoreGraphics.framework */; };
+		42116143149780F8007E4F92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42116141149780F8007E4F92 /* InfoPlist.strings */; };
+		42116145149780F8007E4F92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42116144149780F8007E4F92 /* main.m */; };
+		42116149149780F8007E4F92 /* dreamhomeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42116148149780F8007E4F92 /* dreamhomeAppDelegate.m */; };
+		4211614C149780F8007E4F92 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4211614A149780F8007E4F92 /* MainWindow.xib */; };
+		4211614F149780F8007E4F92 /* dreamhomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211614E149780F8007E4F92 /* dreamhomeViewController.m */; };
+		42116152149780F8007E4F92 /* dreamhomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42116150149780F8007E4F92 /* dreamhomeViewController.xib */; };
+		4211615914978108007E4F92 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4211615814978108007E4F92 /* Icon.png */; };
+		4211615B1497810B007E4F92 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4211615A1497810B007E4F92 /* Icon@2x.png */; };
+		4211615D1497810E007E4F92 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4211615C1497810E007E4F92 /* Default.png */; };
+		4211615F14978110007E4F92 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4211615E14978110007E4F92 /* Default@2x.png */; };
+		429F015D1497837800218286 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429F015C1497837800218286 /* CFNetwork.framework */; };
+		429F01651497843F00218286 /* btn_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F015F1497843F00218286 /* btn_circle.png */; };
+		429F01661497843F00218286 /* btn_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F01601497843F00218286 /* btn_circle@2x.png */; };
+		429F01671497843F00218286 /* device_list_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F01611497843F00218286 /* device_list_bg.png */; };
+		429F01681497843F00218286 /* device_list_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F01621497843F00218286 /* device_list_bg@2x.png */; };
+		429F01691497843F00218286 /* navbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F01631497843F00218286 /* navbar_bg.png */; };
+		429F016A1497843F00218286 /* navbar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 429F01641497843F00218286 /* navbar_bg@2x.png */; };
+		429F01701497845300218286 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 429F016D1497845300218286 /* AsyncSocket.m */; };
+		429F01711497845300218286 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 429F016F1497845300218286 /* AsyncUdpSocket.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		42116134149780F8007E4F92 /* dreamhome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dreamhome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42116138149780F8007E4F92 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4211613A149780F8007E4F92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4211613C149780F8007E4F92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		42116140149780F8007E4F92 /* dreamhome-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dreamhome-Info.plist"; sourceTree = "<group>"; };
+		42116142149780F8007E4F92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		42116144149780F8007E4F92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		42116146149780F8007E4F92 /* dreamhome-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dreamhome-Prefix.pch"; sourceTree = "<group>"; };
+		42116147149780F8007E4F92 /* dreamhomeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dreamhomeAppDelegate.h; sourceTree = "<group>"; };
+		42116148149780F8007E4F92 /* dreamhomeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dreamhomeAppDelegate.m; sourceTree = "<group>"; };
+		4211614B149780F8007E4F92 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		4211614D149780F8007E4F92 /* dreamhomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dreamhomeViewController.h; sourceTree = "<group>"; };
+		4211614E149780F8007E4F92 /* dreamhomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dreamhomeViewController.m; sourceTree = "<group>"; };
+		42116151149780F8007E4F92 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/dreamhomeViewController.xib; sourceTree = "<group>"; };
+		4211615814978108007E4F92 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		4211615A1497810B007E4F92 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		4211615C1497810E007E4F92 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		4211615E14978110007E4F92 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		429F015C1497837800218286 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		429F015F1497843F00218286 /* btn_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_circle.png; sourceTree = "<group>"; };
+		429F01601497843F00218286 /* btn_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_circle@2x.png"; sourceTree = "<group>"; };
+		429F01611497843F00218286 /* device_list_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = device_list_bg.png; sourceTree = "<group>"; };
+		429F01621497843F00218286 /* device_list_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "device_list_bg@2x.png"; sourceTree = "<group>"; };
+		429F01631497843F00218286 /* navbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_bg.png; sourceTree = "<group>"; };
+		429F01641497843F00218286 /* navbar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_bg@2x.png"; sourceTree = "<group>"; };
+		429F016C1497845300218286 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		429F016D1497845300218286 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		429F016E1497845300218286 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		429F016F1497845300218286 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42116131149780F8007E4F92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				429F015D1497837800218286 /* CFNetwork.framework in Frameworks */,
+				42116139149780F8007E4F92 /* UIKit.framework in Frameworks */,
+				4211613B149780F8007E4F92 /* Foundation.framework in Frameworks */,
+				4211613D149780F8007E4F92 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42116129149780F8007E4F92 = {
+			isa = PBXGroup;
+			children = (
+				4211615E14978110007E4F92 /* Default@2x.png */,
+				4211615C1497810E007E4F92 /* Default.png */,
+				4211615A1497810B007E4F92 /* Icon@2x.png */,
+				4211615814978108007E4F92 /* Icon.png */,
+				429F015E1497843F00218286 /* Images */,
+				429F016B1497845300218286 /* SharedClasses */,
+				4211613E149780F8007E4F92 /* dreamhome */,
+				42116137149780F8007E4F92 /* Frameworks */,
+				42116135149780F8007E4F92 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		42116135149780F8007E4F92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42116134149780F8007E4F92 /* dreamhome.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		42116137149780F8007E4F92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				429F015C1497837800218286 /* CFNetwork.framework */,
+				42116138149780F8007E4F92 /* UIKit.framework */,
+				4211613A149780F8007E4F92 /* Foundation.framework */,
+				4211613C149780F8007E4F92 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4211613E149780F8007E4F92 /* dreamhome */ = {
+			isa = PBXGroup;
+			children = (
+				42116147149780F8007E4F92 /* dreamhomeAppDelegate.h */,
+				42116148149780F8007E4F92 /* dreamhomeAppDelegate.m */,
+				4211614A149780F8007E4F92 /* MainWindow.xib */,
+				4211614D149780F8007E4F92 /* dreamhomeViewController.h */,
+				4211614E149780F8007E4F92 /* dreamhomeViewController.m */,
+				42116150149780F8007E4F92 /* dreamhomeViewController.xib */,
+				4211613F149780F8007E4F92 /* Supporting Files */,
+			);
+			path = dreamhome;
+			sourceTree = "<group>";
+		};
+		4211613F149780F8007E4F92 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				42116140149780F8007E4F92 /* dreamhome-Info.plist */,
+				42116141149780F8007E4F92 /* InfoPlist.strings */,
+				42116144149780F8007E4F92 /* main.m */,
+				42116146149780F8007E4F92 /* dreamhome-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		429F015E1497843F00218286 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				429F015F1497843F00218286 /* btn_circle.png */,
+				429F01601497843F00218286 /* btn_circle@2x.png */,
+				429F01611497843F00218286 /* device_list_bg.png */,
+				429F01621497843F00218286 /* device_list_bg@2x.png */,
+				429F01631497843F00218286 /* navbar_bg.png */,
+				429F01641497843F00218286 /* navbar_bg@2x.png */,
+			);
+			name = Images;
+			path = dreamhome/Images;
+			sourceTree = "<group>";
+		};
+		429F016B1497845300218286 /* SharedClasses */ = {
+			isa = PBXGroup;
+			children = (
+				429F016C1497845300218286 /* AsyncSocket.h */,
+				429F016D1497845300218286 /* AsyncSocket.m */,
+				429F016E1497845300218286 /* AsyncUdpSocket.h */,
+				429F016F1497845300218286 /* AsyncUdpSocket.m */,
+			);
+			name = SharedClasses;
+			path = dreamhome/SharedClasses;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42116133149780F8007E4F92 /* dreamhome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42116155149780F8007E4F92 /* Build configuration list for PBXNativeTarget "dreamhome" */;
+			buildPhases = (
+				42116130149780F8007E4F92 /* Sources */,
+				42116131149780F8007E4F92 /* Frameworks */,
+				42116132149780F8007E4F92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dreamhome;
+			productName = dreamhome;
+			productReference = 42116134149780F8007E4F92 /* dreamhome.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4211612B149780F8007E4F92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "torinnguyen@gmail.com";
+			};
+			buildConfigurationList = 4211612E149780F8007E4F92 /* Build configuration list for PBXProject "dreamhome" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 42116129149780F8007E4F92;
+			productRefGroup = 42116135149780F8007E4F92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42116133149780F8007E4F92 /* dreamhome */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		42116132149780F8007E4F92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42116143149780F8007E4F92 /* InfoPlist.strings in Resources */,
+				4211614C149780F8007E4F92 /* MainWindow.xib in Resources */,
+				42116152149780F8007E4F92 /* dreamhomeViewController.xib in Resources */,
+				4211615914978108007E4F92 /* Icon.png in Resources */,
+				4211615B1497810B007E4F92 /* Icon@2x.png in Resources */,
+				4211615D1497810E007E4F92 /* Default.png in Resources */,
+				4211615F14978110007E4F92 /* Default@2x.png in Resources */,
+				429F01651497843F00218286 /* btn_circle.png in Resources */,
+				429F01661497843F00218286 /* btn_circle@2x.png in Resources */,
+				429F01671497843F00218286 /* device_list_bg.png in Resources */,
+				429F01681497843F00218286 /* device_list_bg@2x.png in Resources */,
+				429F01691497843F00218286 /* navbar_bg.png in Resources */,
+				429F016A1497843F00218286 /* navbar_bg@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42116130149780F8007E4F92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42116145149780F8007E4F92 /* main.m in Sources */,
+				42116149149780F8007E4F92 /* dreamhomeAppDelegate.m in Sources */,
+				4211614F149780F8007E4F92 /* dreamhomeViewController.m in Sources */,
+				429F01701497845300218286 /* AsyncSocket.m in Sources */,
+				429F01711497845300218286 /* AsyncUdpSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		42116141149780F8007E4F92 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42116142149780F8007E4F92 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4211614A149780F8007E4F92 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4211614B149780F8007E4F92 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		42116150149780F8007E4F92 /* dreamhomeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42116151149780F8007E4F92 /* en */,
+			);
+			name = dreamhomeViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		42116153149780F8007E4F92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		42116154149780F8007E4F92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		42116156149780F8007E4F92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dreamhome/dreamhome-Prefix.pch";
+				INFOPLIST_FILE = "dreamhome/dreamhome-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		42116157149780F8007E4F92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dreamhome/dreamhome-Prefix.pch";
+				INFOPLIST_FILE = "dreamhome/dreamhome-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4211612E149780F8007E4F92 /* Build configuration list for PBXProject "dreamhome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42116153149780F8007E4F92 /* Debug */,
+				42116154149780F8007E4F92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42116155149780F8007E4F92 /* Build configuration list for PBXNativeTarget "dreamhome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42116156149780F8007E4F92 /* Debug */,
+				42116157149780F8007E4F92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4211612B149780F8007E4F92 /* Project object */;
+}
