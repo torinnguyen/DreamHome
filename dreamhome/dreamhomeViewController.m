@@ -55,9 +55,6 @@
     
     //TCP socket for serial data
     asyncTcpSocketSerial = [[AsyncSocket alloc] initWithDelegate:self];
-    
-    //Start listening
-    [asyncUdpSocket receiveWithTimeout:-1 tag:1];
 }
 
 - (void)viewDidUnload
@@ -67,11 +64,21 @@
     
     //Important!!
     asyncUdpSocket.delegate = nil;
+    asyncTcpSocketStatus.delegate = nil;
+    asyncTcpSocketSerial.delegate = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+    //For the app to work when coming back from background
+    asyncUdpSocket.delegate = self;
+    asyncTcpSocketStatus.delegate = self;
+    asyncTcpSocketSerial.delegate = self;
+    
+    //Start listening
+    [asyncUdpSocket receiveWithTimeout:-1 tag:1];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
