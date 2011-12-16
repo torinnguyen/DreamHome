@@ -4,6 +4,17 @@
 
 #import "dreamhomeViewController.h"
 
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <net/if.h>
+#include <ifaddrs.h>
+
+@interface dreamhomeViewController ()
+    @property (nonatomic, retain) NSTimer* timer;
+    - (void)onTimer:(NSTimer*)timer;
+@end
+
+
 @implementation dreamhomeViewController
 
 #define BEACON_PORT         9131
@@ -15,6 +26,7 @@
 #define MULTICASTGROUP      @"239.255.250.250"
 
 @synthesize ipAddr;
+@synthesize timer;
 
 #pragma mark - Custom Initialization
 
@@ -37,48 +49,41 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     //Hide the default navbar
-    self.navigationController.navigationBarHidden = YES;
-    
-    //Clear UI
-    ipAddr.text = @"scanning...";
-    
-    //Device list
-    deviceList = [[NSMutableDictionary alloc] initWithCapacity:10];
-    
-    //UDP socket for listening to beacon
-    asyncUdpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self userData:BEACON_TAG];
-    [asyncUdpSocket bindToPort:BEACON_PORT error:nil];
-    [asyncUdpSocket joinMulticastGroup:MULTICASTGROUP error:nil];
-    
-    //TCP socket for status & control
-    asyncTcpSocketStatus = [[AsyncSocket alloc] initWithDelegate:self];
-    
-    //TCP socket for serial data
-    asyncTcpSocketSerial = [[AsyncSocket alloc] initWithDelegate:self];
+    self.navigationController.navigationBarHidden = YES;      
 }
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
     self.ipAddr = nil;
+    
+    if (self.timer != nil)
+        [self.timer invalidate];
+    self.timer = nil;
     
     //Important!!
     asyncUdpSocket.delegate = nil;
     asyncTcpSocketStatus.delegate = nil;
     asyncTcpSocketSerial.delegate = nil;
+    
+    [asyncUdpSocket release];
+    [asyncTcpSocketStatus release];
+    [asyncTcpSocketSerial release];
+    
+    asyncUdpSocket = nil;
+    asyncTcpSocketStatus = nil;
+    asyncTcpSocketSerial = nil;
+    
+    [super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-    //For the app to work when coming back from background
-    asyncUdpSocket.delegate = self;
-    asyncTcpSocketStatus.delegate = self;
-    asyncTcpSocketSerial.delegate = self;
     
-    //Start listening
-    [asyncUdpSocket receiveWithTimeout:-1 tag:1];
+    //For debugging
+    NSLog(@"my ip address: %@", [self getIPAddress]);
+    
+    [self reset];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -99,10 +104,70 @@
 - (IBAction)onBtnTop:(id)sender         {   [self sendSerialCommand:@"20"];    }
 - (IBAction)onBtnBottom:(id)sender      {   [self sendSerialCommand:@"21"];    }
 
-
+- (void)onTimer:(NSTimer*)whichTimer
+{
+    //Everything is normal, clean up the timer
+    if ([asyncTcpSocketSerial isConnected])
+    {
+        [whichTimer invalidate];
+        if (whichTimer == self.timer)
+            self.timer = nil;
+        return;
+    }
+    
+    //Did not receive any beacon, hence not connected
+    //Show current WiFi IP Address for diagnostic
+    [self setStatusText:[NSString stringWithFormat:@"Error %@", [self getIPAddress]] withColor:[UIColor redColor]];
+    
+    NSLog(@"timer timeout! my ip address: %@", [self getIPAddress]);
+}
 
 
 #pragma mark - Helper functions
+
+- (void)reset
+{
+    NSLog(@"reseting...");
+        
+    //Device list
+    if (deviceList == nil)
+        deviceList = [[NSMutableDictionary alloc] initWithCapacity:10];
+    [deviceList removeAllObjects];
+    
+    //UDP socket for listening to beacon
+    if (asyncUdpSocket == nil)
+        asyncUdpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self userData:BEACON_TAG];
+    [asyncUdpSocket bindToPort:BEACON_PORT error:nil];
+    [asyncUdpSocket joinMulticastGroup:MULTICASTGROUP error:nil];
+    
+    //TCP socket for status & control
+    if (asyncTcpSocketStatus == nil)
+        asyncTcpSocketStatus = [[AsyncSocket alloc] initWithDelegate:self];
+    
+    //TCP socket for serial data
+    if (asyncTcpSocketSerial == nil)
+        asyncTcpSocketSerial = [[AsyncSocket alloc] initWithDelegate:self];
+    
+    //For the app to work when coming back from background
+    asyncUdpSocket.delegate = self;
+    asyncTcpSocketStatus.delegate = self;
+    asyncTcpSocketSerial.delegate = self;
+    
+    //Start listening
+    [asyncUdpSocket receiveWithTimeout:-1 tag:1];
+    
+    //Clear UI
+    [self setStatusText:@"scanning..." withColor:[UIColor whiteColor]];
+    
+    //Setup long timer
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(onTimer:) userInfo:nil repeats:YES];
+}
+
+- (void)setStatusText:(NSString*)text withColor:(UIColor*)color
+{
+    ipAddr.text = text;
+    ipAddr.textColor = color;
+}
 
 - (NSDictionary *)parseBeaconString:(NSString*)string
 {
@@ -263,6 +328,38 @@
     return YES;
 }
 
+- (NSString *)getIPAddress 
+{
+    NSString *address = @"error";
+    struct ifaddrs *interfaces = NULL;
+    struct ifaddrs *temp_addr = NULL;
+    int success = 0;
+    
+    // retrieve the current interfaces - returns 0 on success
+    success = getifaddrs(&interfaces);
+    if (success == 0)  
+    {
+        // Loop through linked list of interfaces
+        temp_addr = interfaces;
+        while(temp_addr != NULL)  
+        {
+            if(temp_addr->ifa_addr->sa_family == AF_INET)
+            {
+                // Check if interface is en0 which is the wifi connection on the iPhone  
+                if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"])  
+                {
+                    // Get NSString from C String
+                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
+                }
+            }
+            temp_addr = temp_addr->ifa_next;
+        }
+    }
+    
+    // Free memory
+    freeifaddrs(interfaces); 
+    return address; 
+}
 
 
 #pragma mark - AsyncUdpSocket delegate
@@ -284,7 +381,7 @@
         //Connect to the first device found
         if (![asyncTcpSocketStatus isConnected])
         {
-            ipAddr.text = [NSString stringWithFormat:@"Controlling %@", ip];
+            [self setStatusText:[NSString stringWithFormat:@"Controlling %@", ip] withColor:[UIColor whiteColor]];
             
             NSError *err = nil;
             if (![asyncTcpSocketStatus connectToHost:ip onPort:STATUS_PORT error:&err])
@@ -320,6 +417,7 @@
 - (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port
 {
     NSLog(@"didConnectToHost %@:%d", host, port);
+    NSLog(@"my ip address: %@", [self getIPAddress]);
     
     if (sock == asyncTcpSocketStatus)
     {

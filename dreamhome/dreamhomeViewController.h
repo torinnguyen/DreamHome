@@ -21,6 +21,8 @@
 - (IBAction)onBtnBottom:(id)sender;
 
 //Helper functions
+- (void)reset;
+- (void)setStatusText:(NSString*)text withColor:(UIColor*)color;
 - (NSDictionary *)parseBeaconString:(NSString*)string;
 - (NSDictionary *)parseGetDevice:(NSString*)string;
 
@@ -31,6 +33,7 @@
 
 //Utilities
 - (BOOL)string:(NSString*)string contains:(NSString*)anotherString;
+- (NSString *)getIPAddress;
 
 // Data Events
 - (void)onReceiveSocketStatus:(AsyncSocket *)sock didReadData:(NSString *)string withTag:(long)tag;
